@@ -1,22 +1,11 @@
-function getShippingCost(country) {
-  let message;
+function checkForSpam(message) {
+  let result;
   // Change code below this line
-  switch (country) {
-    case 'China':
-      message = `Shipping to ${country} will cost ${price} credits`;
-      break;
-    case 'Chile':
-      message = `Shipping to ${country} will cost ${price} credits`;
-      break;
-    case 'Australia':
-      message = `Shipping to ${country} will cost ${price} credits`;
-      break;
-    case 'Jamaica':
-      message = `Shipping to ${country} will cost ${price} credits`;
-      break;
-    default:
-      message = 'Sorry, there is no delivery to your country';
+  if (message.toLowerCase().includes('spam') || message.toLowerCase().includes('sale')) {
+    result = true;
+  } else {
+    result = false;
   }
   // Change code above this line
-  return message;
+  return result;
 }
