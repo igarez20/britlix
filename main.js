@@ -1,13 +1,6 @@
-function filterArray(numbers, value) {
+function getEvenNumbers(start, end) {
   // Change code below this line
-  const newArray = [];
+  const evenNumbers = [];
 
-  for (let i = 0; numbers.length > i; i += 1) {
-    if (numbers[i] > value) {
-      newArray.push(numbers[i]);
-    }
-  }
-
-  return newArray;
   // Change code above this line
 }
