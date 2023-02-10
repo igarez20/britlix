@@ -1,8 +1,10 @@
-// // Change code below this line
-// const getUsersWithFriend = (users, friendName) =>
-//   users.filter(user => user.friends.includes(friendName));
-// // Change code above this line
+// Change code below this line
+const getFriends = users => {
+  const allFriends = users.flatMap(user => user.friends);
+  const uniqueFriends = allFriends.filter(
+    (friend, index, array) => array.indexOf(friend) === index
+  );
+  return uniqueFriends;
+};
 
-// // Change code below this line
-// const getFriends = users => users.filter(user => user.friends);
-// // Change code above this line
+// Change code above this line
