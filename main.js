@@ -1,107 +1,42 @@
-const books = [
-  {
-    title: 'The Last Kingdom',
-    author: 'Bernard Cornwell',
-    rating: 8.38,
-  },
-  {
-    title: 'Beside Still Waters',
-    author: 'Robert Sheckley',
-    rating: 8.51,
-  },
-  {
-    title: 'The Dream of a Ridiculous Man',
-    author: 'Fyodor Dostoevsky',
-    rating: 7.75,
-  },
-  { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
-  { title: 'Enemy of God', author: 'Bernard Cornwell', rating: 8.67 },
-];
-// Change code below this line
+class Car {
+  constructor({ brand, model, price }) {
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  }
+  // Change code below this line
 
-const sortedByAuthorName = [...books].sort((curElement, nextElement) =>
-  curElement.author.localeCompare(nextElement.author)
-);
+  getPrice() {
+    return this.price;
+  }
 
-const sortedByReversedAuthorName = [...books].sort((curElement, nextElement) =>
-  nextElement.author.localeCompare(curElement.author)
-);
+  changePrice(newPrice) {
+    this.price = newPrice;
+  }
+  // Change code above this line
+}
 
-const sortedByAscendingRating = [...books].sort(
-  (curElement, nextElement) => curElement.rating - nextElement.rating
-);
+class Storage {
+  constructor(items) {
+    this.items = items;
+  }
 
-const sortedByDescentingRating = [...books].sort(
-  (curElement, nextElement) => nextElement.rating - curElement.rating
-);
+  getItems() {
+    return this.items;
+  }
 
-// Change code below this line
-const sortByAscendingBalance = users =>
-  [...users].sort((curElement, nextElement) => curElement.balance - nextElement.balance);
-// Change code above this line
-
-// Change code below this line
-const sortByDescendingFriendCount = users =>
-  [...users].sort(
-    (curElement, nextElement) => nextElement.friends.length - curElement.friends.length
-  );
-// Change code above this line
-
-// Change code below this line
-const sortByName = users =>
-  [...users].sort((curElement, nextElement) => curElement.name.localeCompare(nextElement.name));
-// Change code above this line
-
-const books = [
-  {
-    title: 'The Last Kingdom',
-    author: 'Bernard Cornwell',
-    rating: 8.38,
-  },
-  {
-    title: 'Beside Still Waters',
-    author: 'Robert Sheckley',
-    rating: 8.51,
-  },
-  {
-    title: 'The Dream of a Ridiculous Man',
-    author: 'Fyodor Dostoevsky',
-    rating: 7.75,
-  },
-  { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
-  {
-    title: 'The Dreams in the Witch House',
-    author: 'Howard Lovecraft',
-    rating: 8.67,
-  },
-];
-const MIN_BOOK_RATING = 8;
-// Change code below this line
-
-const names = [...books]
-  .filter(book => book.rating > MIN_BOOK_RATING)
-  .sort((curElement, nextElement) => curElement.author.localeCompare(nextElement.author))
-  .map(bookAuthor => bookAuthor.author);
-
-// Change code below this line
-const getNamesSortedByFriendCount = users =>
-  [...users]
-    .sort((curElement, nextElement) => curElement.friends.length - nextElement.friends.length)
-    .map(userName => userName.name);
-// Change code above this line
-
-// Change code below this line
-const getSortedFriends = users =>
-  [...users]
-    .flatMap(userFriends => userFriends.friends)
-    .filter((friend, index, array) => array.indexOf(friend) === index)
-    .sort();
-// Change code above this line
-
-// Change code below this line
-const getTotalBalanceByGender = (users, gender) =>
-  [...users]
-    .filter(user => user.gender === gender)
-    .reduce((total, user) => total + user.balance, 0);
+  addItem(newItem) {
+    this.items.push(newItem);
+  }
+  removeItem(itemToRemove) {
+    return this.items.splice(this.items.indexOf(itemToRemove), 1);
+  }
+}
 
 // Change code above this line
+const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem('Droid');
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem('Prolonger');
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
